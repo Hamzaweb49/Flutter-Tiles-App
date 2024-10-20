@@ -73,3 +73,15 @@ class UpdateProductData {
     return result;
   }
 }
+
+/// GET Product Details
+class DeleteProductRepo {
+  static Future<ResponseItem> deleteProductRepo({required int id}) async {
+    ResponseItem result = ResponseItem();
+    String requestUrl =
+        AppUrls.BASE_URL + MethodNames.deleteProduct + id.toString();
+    print(requestUrl);
+    result = await BaseApiHelper.deleteRequest(requestUrl);
+    return result;
+  }
+}

@@ -10,6 +10,7 @@ class AdminOrdersController extends GetxController {
   var isLoading = false.obs;
 
   var _isAllOrdersLoading = false;
+  var storedDaysCount;
 
   void _updateLoadingState() {
     isLoading(_isAllOrdersLoading);
@@ -17,6 +18,7 @@ class AdminOrdersController extends GetxController {
 
   getAllOrders(int daysCount) async {
     _isAllOrdersLoading = true;
+    storedDaysCount = daysCount;
     _updateLoadingState();
 
     ResponseItem result =
@@ -51,6 +53,7 @@ class AdminOrdersController extends GetxController {
       if (result.status) {
         if (result.data != null) {
           showSuccessSnackBar('Action Taken Successfully');
+          getAllOrders(storedDaysCount);
           return true;
         }
       } else {

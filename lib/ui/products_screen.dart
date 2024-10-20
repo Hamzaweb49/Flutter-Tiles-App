@@ -280,21 +280,77 @@ class _ProductsScreenState extends State<ProductsScreen> {
                                               ),
                                             ),
                                             if (userRole == 'Admin')
-                                              GestureDetector(
-                                                onTap: () {
-                                                  Get.toNamed(
-                                                    Routes.addProductScreen,
-                                                    arguments: {
-                                                      'isFrom': "editScreen",
-                                                      'productId':
-                                                          product["id"],
-                                                      'productDetails': product
+                                              Row(
+                                                children: [
+                                                  GestureDetector(
+                                                    onTap: () {
+                                                      Get.toNamed(
+                                                        Routes.addProductScreen,
+                                                        arguments: {
+                                                          'isFrom':
+                                                              "editScreen",
+                                                          'productId':
+                                                              product["id"],
+                                                          'productDetails':
+                                                              product,
+                                                        },
+                                                      );
                                                     },
-                                                  );
-                                                },
-                                                child: const Icon(Icons.edit,
-                                                    color: Colors.grey,
-                                                    size: 20),
+                                                    child: const Icon(
+                                                      Icons.edit,
+                                                      color: Colors.grey,
+                                                      size: 20,
+                                                    ),
+                                                  ),
+                                                  const SizedBox(width: 8),
+                                                  GestureDetector(
+                                                    onTap: () {
+                                                      showDialog(
+                                                        context: context,
+                                                        builder: (BuildContext
+                                                            context) {
+                                                          return AlertDialog(
+                                                            title: const Text(
+                                                                "Confirm Deletion"),
+                                                            content: const Text(
+                                                                "Do you want to delete this product?"),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () {
+                                                                  Navigator.of(
+                                                                          context)
+                                                                      .pop();
+                                                                },
+                                                                child:
+                                                                    const Text(
+                                                                        "No"),
+                                                              ),
+                                                              TextButton(
+                                                                onPressed: () {
+                                                                  productsController
+                                                                      .deleteProduct(
+                                                                          product[
+                                                                              "id"]);
+                                                                  Navigator.of(
+                                                                          context)
+                                                                      .pop(); // Close the dialog after deletion
+                                                                },
+                                                                child:
+                                                                    const Text(
+                                                                        "Yes"),
+                                                              ),
+                                                            ],
+                                                          );
+                                                        },
+                                                      );
+                                                    },
+                                                    child: const Icon(
+                                                      Icons.delete,
+                                                      color: Colors.red,
+                                                      size: 20,
+                                                    ),
+                                                  ),
+                                                ],
                                               ),
                                           ],
                                         ),

@@ -85,4 +85,20 @@ class ProductsController extends GetxController {
     }
     update();
   }
+
+  // Fetch all products
+  deleteProduct(int id) async {
+    ResponseItem result = await DeleteProductRepo.deleteProductRepo(id: id);
+    try {
+      if (result.status) {
+        getAllProducts();
+        showSuccessSnackBar('Product Deleted successfully');
+      } else {
+        showBottomSnackBar(result.message ?? 'Something went wrong');
+      }
+    } catch (e) {
+      log('ERROR=====DeleteProduct==>>>>====>>>>$e');
+    } finally {}
+    update();
+  }
 }

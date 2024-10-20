@@ -28,6 +28,7 @@ class MethodNames {
   static const updateProduct = "Product/";
   static const getProductBySubCategoryId =
       "Product/GetProductBySubCategoryId?subCategoryId=";
+  static const deleteProduct = "Product/";
 
   // Auth APIS
   static const authLogin = "Auth/Login";
