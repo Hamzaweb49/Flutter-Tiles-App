@@ -12,7 +12,13 @@ class MethodNames {
   static const getAllBrand = "Master/GetAllBrand";
   static const getAllPunch = "Master/GetAllPunch";
   static const addBrand = "Master/AddBrand";
+  static const addLocation = "Master/AddLocation";
   static const getModel = "Master/GetModel";
+  static const addParentCategory = "Master/AddParentCategory";
+  static const addCategory = "Master/AddCategory";
+  static const addSubCategory = "Master/AddSubCategory";
+  static const addCompanyDetail = "Master/AddCompanyDetail";
+  static const getCompanyAndLogo = "Master/GetCompanyAndLogo";
 
   // Product APIS
   static const getParentCategoryByLocation =
@@ -21,7 +27,8 @@ class MethodNames {
       "Master/GetCategoryByParentCategory?parentCategoryId=";
   static const getSubCategoryByCategory =
       "Master/GetSubCategoryByCategory?categoryId=";
-  static const getAllProduct = "Product/GetAllProduct";
+  static const getAllProductByCategoryId =
+      "Product/GetAllProductByCategoryId?categoryId=";
   static const getProductById = "Product/GetProductbyId?productId=";
   static const uploadProductImage = "Product/UploadImages";
   static const addProduct = "Product";

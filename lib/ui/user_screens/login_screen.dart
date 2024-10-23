@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tiles_app/constant/app_color.dart';
-import 'package:tiles_app/constant/app_string.dart';
-import 'package:tiles_app/controller/login_controller.dart';
+import 'package:tiles_app/controller/user_controllers/login_controller.dart';
 import 'package:tiles_app/widgets/app_appbar.dart';
 import 'package:tiles_app/widgets/app_container.dart';
 import 'package:tiles_app/widgets/custom_text_fields.dart';

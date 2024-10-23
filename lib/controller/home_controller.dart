@@ -1,24 +1,20 @@
 import 'dart:developer';
-
 import 'package:get/get.dart';
 import 'package:tiles_app/api/repo/master_repo.dart';
 import 'package:tiles_app/model/response_item.dart';
 import 'package:tiles_app/theme/app_layout.dart';
 
-class LocationController extends GetxController {
-  var locations = [].obs;
-  var companyDetails = [].obs;
+class HomeController extends GetxController {
+  var companyDetails = {}.obs;
   var isLoading = false.obs;
 
-  getAllLocationData() async {
+  getCompanyDetail() async {
     isLoading.value = true;
-
+    ResponseItem result = await GetCompanyDetailRepo.getCompanyDetailRepo();
     try {
-      ResponseItem result = await GetAllLocationData.getAllLocationData();
-      isLoading.value = false;
-
       if (result.status && result.data != null) {
-        locations.value = result.data;
+        companyDetails.value = result.data;
+        isLoading.value = false;
       } else {
         showBottomSnackBar(result.message ?? 'Something went wrong');
       }
@@ -26,7 +22,7 @@ class LocationController extends GetxController {
       log('ERROR=======>>>>====>>>>$e');
       showBottomSnackBar('An error occurred while fetching data');
     } finally {
-      isLoading.value = false; // Ensure loading state is reset
+      isLoading.value = false;
       update();
     }
   }

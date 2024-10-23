@@ -7,7 +7,7 @@ import 'package:intl/intl.dart';
 import 'package:reorderable_grid_view/reorderable_grid_view.dart';
 import 'package:tiles_app/constant/app_color.dart';
 import 'package:tiles_app/constant/app_string.dart';
-import 'package:tiles_app/controller/add_products_controller.dart';
+import 'package:tiles_app/controller/admin_controllers/add_products_controller.dart';
 import 'package:tiles_app/model/post_login_response_model.dart';
 import 'package:tiles_app/theme/app_layout.dart';
 import 'package:tiles_app/utils/extension.dart';
@@ -221,8 +221,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
                                             if (selectedModel != null) {
                                               addProductController.updateModel(
                                                 index,
-                                                selectedModel[
-                                                    'name'], // Pass the model name instead of ID
+                                                selectedModel['name'],
                                                 addProductController
                                                     .productModels[index]
                                                     .boxCount,

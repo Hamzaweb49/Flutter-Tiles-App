@@ -5,10 +5,14 @@ import 'package:tiles_app/constant/app_request.dart';
 import 'package:tiles_app/model/response_item.dart';
 
 ///GET ALL Location Products
-class GetAllProduct {
-  static Future<ResponseItem> getAllProduct() async {
+class GetAllProductByCategoryId {
+  static Future<ResponseItem> getAllProductByCategoryId(
+      {required int categoryId}) async {
     ResponseItem result = ResponseItem();
-    String requestUrl = AppUrls.BASE_URL + MethodNames.getAllProduct;
+    String requestUrl = AppUrls.BASE_URL +
+        MethodNames.getAllProductByCategoryId +
+        categoryId.toString();
+    ;
     result = await BaseApiHelper.getRequest(requestUrl);
     return result;
   }

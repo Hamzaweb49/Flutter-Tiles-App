@@ -9,6 +9,7 @@ class ProductsController extends GetxController {
   var subCategories = <Map<String, dynamic>>[].obs;
   var products = <Map<String, dynamic>>[].obs;
   var isLoading = false.obs; // Single loading state
+  var storedCategoryId;
 
   // Track the loading state of each operation separately
   var _isSubCategoryLoading = false;
@@ -43,11 +44,14 @@ class ProductsController extends GetxController {
   }
 
   // Fetch all products
-  getAllProducts() async {
+  getAllProducts(int categoryId) async {
     _isProductsLoading = true; // Start product loading
     _updateLoadingState(); // Update the global loading state
+    storedCategoryId = categoryId;
 
-    ResponseItem result = await GetAllProduct.getAllProduct();
+    ResponseItem result =
+        await GetAllProductByCategoryId.getAllProductByCategoryId(
+            categoryId: categoryId);
     try {
       if (result.status && result.data != null) {
         products.value = (result.data as List).cast<Map<String, dynamic>>();
@@ -91,7 +95,7 @@ class ProductsController extends GetxController {
     ResponseItem result = await DeleteProductRepo.deleteProductRepo(id: id);
     try {
       if (result.status) {
-        getAllProducts();
+        getAllProducts(storedCategoryId);
         showSuccessSnackBar('Product Deleted successfully');
       } else {
         showBottomSnackBar(result.message ?? 'Something went wrong');

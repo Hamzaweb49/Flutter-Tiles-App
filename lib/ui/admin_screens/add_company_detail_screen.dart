@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tiles_app/constant/app_color.dart';
-import 'package:tiles_app/controller/add_brand_controller.dart';
+import 'package:tiles_app/controller/admin_controllers/add_brand_controller.dart';
+import 'package:tiles_app/controller/admin_controllers/add_company_detail_screen.dart';
 import 'package:tiles_app/widgets/app_appbar.dart';
 import 'package:tiles_app/widgets/app_container.dart';
 import 'package:tiles_app/widgets/custom_text_fields.dart';
 import 'package:tiles_app/widgets/app_button.dart';
 
-class AddBrandScreen extends StatelessWidget {
-  const AddBrandScreen({Key? key}) : super(key: key);
+class AddCompanyDetailScreen extends StatelessWidget {
+  const AddCompanyDetailScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final AddBrandController addBrandController = Get.put(AddBrandController());
+    final AddCompanyDetailController addCompanyDetailController =
+        Get.put(AddCompanyDetailController());
     final h = MediaQuery.of(context).size.height;
     final w = MediaQuery.of(context).size.width;
 
@@ -23,7 +25,7 @@ class AddBrandScreen extends StatelessWidget {
           appBar: CommonAppBar(
             h: h,
             w: w,
-            title: 'Manage Brand',
+            title: 'Manage Company',
           ),
           body: SingleChildScrollView(
             padding: EdgeInsets.symmetric(horizontal: w * 0.040),
@@ -32,7 +34,7 @@ class AddBrandScreen extends StatelessWidget {
               children: [
                 const SizedBox(height: 20),
                 const Text(
-                  'Add Brand',
+                  'Enter Company Details',
                   style: TextStyle(
                     fontFamily: 'Montserrat',
                     fontSize: 20,
@@ -41,7 +43,7 @@ class AddBrandScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 16),
                 const Text(
-                  'Enter Brand Name',
+                  'Enter Company Name',
                   style: TextStyle(
                     fontFamily: 'Montserrat',
                     fontSize: 16,
@@ -49,18 +51,46 @@ class AddBrandScreen extends StatelessWidget {
                   ),
                 ),
                 CustomTextField(
-                  labelText: 'Brand Name',
-                  hintText: 'Enter Brand Name',
-                  controller: addBrandController.brandNameController,
+                  labelText: 'Company Name',
+                  hintText: 'Enter Company Name',
+                  controller: addCompanyDetailController.companyNameController,
+                ),
+                const SizedBox(height: 16),
+                const Text(
+                  'Enter Logo URL',
+                  style: TextStyle(
+                    fontFamily: 'Montserrat',
+                    fontSize: 16,
+                    color: Colors.black54,
+                  ),
+                ),
+                CustomTextField(
+                  labelText: 'Logo URL',
+                  hintText: 'Enter Logo URL',
+                  controller: addCompanyDetailController.logoUrlController,
+                ),
+                const SizedBox(height: 16),
+                const Text(
+                  'Enter About Company',
+                  style: TextStyle(
+                    fontFamily: 'Montserrat',
+                    fontSize: 16,
+                    color: Colors.black54,
+                  ),
+                ),
+                CustomTextField(
+                  labelText: 'About Company',
+                  hintText: 'Enter About Company',
+                  controller: addCompanyDetailController.companyAboutController,
                 ),
                 const SizedBox(height: 30),
                 AppFilledButton(
-                  title: 'Add Brand',
+                  title: 'Add Company',
                   buttonColor: appColor,
                   textColor: whiteColor,
                   fontSize: 16,
                   onPressed: () {
-                    addBrandController.addBrand();
+                    addCompanyDetailController.addCompanyDetail();
                   },
                 ),
                 const SizedBox(height: 40),

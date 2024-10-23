@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tiles_app/constant/app_assets.dart';
-import 'package:tiles_app/constant/app_string.dart';
 import 'package:tiles_app/controller/category_list_controller.dart';
 import 'package:tiles_app/utils/app_routes.dart';
-import 'package:tiles_app/utils/extension.dart';
 import 'package:tiles_app/widgets/app_appbar.dart';
 import 'package:tiles_app/widgets/app_bottom_navigator.dart';
 import 'package:tiles_app/widgets/app_container.dart';
-import 'package:tiles_app/widgets/app_text_fields.dart';
 
 class CategoriesListScreen extends StatefulWidget {
   const CategoriesListScreen({super.key});
@@ -47,7 +44,7 @@ class _CategoriesListScreenState extends State<CategoriesListScreen> {
           appBar: CommonAppBar(
             h: h,
             w: w,
-            title: 'RD Cera Tiles',
+            title: 'Tiles Categories',
           ),
           body: Padding(
             padding: EdgeInsets.symmetric(horizontal: w * 0.040),

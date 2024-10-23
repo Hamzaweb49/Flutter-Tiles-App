@@ -1,9 +1,8 @@
 import 'dart:convert';
-import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tiles_app/constant/app_color.dart';
-import 'package:tiles_app/controller/products_controller.dart';
+import 'package:tiles_app/controller/products_controllers/products_controller.dart';
 import 'package:tiles_app/model/post_login_response_model.dart';
 import 'package:tiles_app/utils/app_routes.dart';
 import 'package:tiles_app/utils/shared_prefs.dart';
@@ -33,7 +32,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
     categoryName = Get.arguments['categoryName'] ?? '';
     parentId = Get.arguments['parentId'] ?? 0;
     productsController.getSubCategory(categoryId);
-    productsController.getAllProducts();
+    productsController.getAllProducts(categoryId);
     selectedSubCategoryId = -1;
     getUserRole();
   }
@@ -104,8 +103,8 @@ class _ProductsScreenState extends State<ProductsScreen> {
                                   selectedSubCategoryId =
                                       -1; // Update selected ID to "All"
                                 });
-                                productsController
-                                    .getAllProducts(); // Fetch all products
+                                productsController.getAllProducts(
+                                    categoryId); // Fetch all products
                               },
                               child: Container(
                                 margin: const EdgeInsets.only(right: 15),

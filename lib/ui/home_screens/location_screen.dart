@@ -7,7 +7,6 @@ import 'package:tiles_app/utils/app_routes.dart';
 import 'package:tiles_app/widgets/app_appbar.dart';
 import 'package:tiles_app/widgets/app_container.dart';
 import 'package:tiles_app/controller/location_controller.dart';
-import 'package:tiles_app/widgets/app_text_fields.dart';
 
 class LocationScreen extends StatefulWidget {
   const LocationScreen({super.key});

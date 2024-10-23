@@ -1,20 +1,25 @@
 import 'package:get/get.dart';
-import 'package:tiles_app/ui/add_brand_screen.dart';
-import 'package:tiles_app/ui/add_product_screen.dart';
-import 'package:tiles_app/ui/admin_dashboard_screen.dart';
-import 'package:tiles_app/ui/admin_orders_screen.dart';
-import 'package:tiles_app/ui/categories_list_screen.dart';
-import 'package:tiles_app/ui/create_order_screen.dart';
-import 'package:tiles_app/ui/home_screen.dart';
-import 'package:tiles_app/ui/location_screen.dart';
-import 'package:tiles_app/ui/login_screen.dart';
-import 'package:tiles_app/ui/product_details_screen.dart';
-import 'package:tiles_app/ui/products_screen.dart';
-import 'package:tiles_app/ui/register_screen.dart';
-import 'package:tiles_app/ui/splash_screen.dart';
-import 'package:tiles_app/ui/user_dashboard_screen.dart';
-import 'package:tiles_app/ui/user_orders_screen.dart';
-import 'package:tiles_app/ui/user_profile_screen.dart';
+import 'package:tiles_app/ui/admin_screens/add_brand_screen.dart';
+import 'package:tiles_app/ui/admin_screens/add_category_screen.dart';
+import 'package:tiles_app/ui/admin_screens/add_company_detail_screen.dart';
+import 'package:tiles_app/ui/admin_screens/add_location_screen.dart';
+import 'package:tiles_app/ui/admin_screens/add_parent_category_screen.dart';
+import 'package:tiles_app/ui/admin_screens/add_product_screen.dart';
+import 'package:tiles_app/ui/admin_screens/add_sub_category_screen.dart';
+import 'package:tiles_app/ui/admin_screens/admin_dashboard_screen.dart';
+import 'package:tiles_app/ui/admin_screens/admin_orders_screen.dart';
+import 'package:tiles_app/ui/home_screens/categories_list_screen.dart';
+import 'package:tiles_app/ui/products_screens/create_order_screen.dart';
+import 'package:tiles_app/ui/home_screens/home_screen.dart';
+import 'package:tiles_app/ui/home_screens/location_screen.dart';
+import 'package:tiles_app/ui/user_screens/login_screen.dart';
+import 'package:tiles_app/ui/products_screens/product_details_screen.dart';
+import 'package:tiles_app/ui/products_screens/products_screen.dart';
+import 'package:tiles_app/ui/user_screens/register_screen.dart';
+import 'package:tiles_app/ui/home_screens/splash_screen.dart';
+import 'package:tiles_app/ui/user_screens/user_dashboard_screen.dart';
+import 'package:tiles_app/ui/user_screens/user_orders_screen.dart';
+import 'package:tiles_app/ui/user_screens/user_profile_screen.dart';
 
 class Routes {
   static String splashScreen = "/";
@@ -28,11 +33,16 @@ class Routes {
   static String registerScreen = "/registerScreen";
   static String adminDashboardScreen = "/adminDashboardScreen";
   static String addBrandScreen = "/addBrandScreen";
+  static String addLocationScreen = "/addLocationScreen";
   static String adminOrdersScreen = "/adminOrdersScreen";
   static String createOrderScreen = "/createOrderScreen";
   static String userDashboardScreen = "/userDashboardScreen";
   static String userProfileScreen = "/userProfileScreen";
   static String userOrdersScreen = "/userOrdersScreen";
+  static String addParentCategoryScreen = "/addParentCategoryScreen";
+  static String addCategoryScreen = "/addCategoryScreen";
+  static String addSubCategoryScreen = "/addSubCategoryScreen";
+  static String addCompanyDetailScreen = "/addCompanyDetailScreen";
 
   static List<GetPage> routes = [
     GetPage(
@@ -80,6 +90,10 @@ class Routes {
         page: () => const AddBrandScreen(),
         transition: Transition.fadeIn),
     GetPage(
+        name: addLocationScreen,
+        page: () => const AddLocationScreen(),
+        transition: Transition.fadeIn),
+    GetPage(
         name: createOrderScreen,
         page: () => const CreateOrderScreen(),
         transition: Transition.fadeIn),
@@ -98,6 +112,22 @@ class Routes {
     GetPage(
         name: adminOrdersScreen,
         page: () => const AdminOrdersScreen(),
+        transition: Transition.fadeIn),
+    GetPage(
+        name: addParentCategoryScreen,
+        page: () => const AddParentCategoryScreen(),
+        transition: Transition.fadeIn),
+    GetPage(
+        name: addCategoryScreen,
+        page: () => const AddCategoryScreen(),
+        transition: Transition.fadeIn),
+    GetPage(
+        name: addSubCategoryScreen,
+        page: () => const AddSubCategoryScreen(),
+        transition: Transition.fadeIn),
+    GetPage(
+        name: addCompanyDetailScreen,
+        page: () => const AddCompanyDetailScreen(),
         transition: Transition.fadeIn),
   ];
 }

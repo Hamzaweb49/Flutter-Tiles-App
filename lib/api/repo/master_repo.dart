@@ -81,6 +81,77 @@ class AddBrandRepo {
   }
 }
 
+///Add Location
+class AddLocationRepo {
+  static Future<ResponseItem> addLocationRepo(
+      {required Map<String, dynamic> locationData}) async {
+    ResponseItem result = ResponseItem();
+
+    String requestUrl = AppUrls.BASE_URL + MethodNames.addLocation;
+    result = await BaseApiHelper.postRequest(requestUrl, locationData);
+    return result;
+  }
+}
+
+///Add Parent Category
+class AddParentCategoryRepo {
+  static Future<ResponseItem> addParentCategoryRepo(
+      {required Map<String, dynamic> parentCategoryData}) async {
+    ResponseItem result = ResponseItem();
+
+    String requestUrl = AppUrls.BASE_URL + MethodNames.addParentCategory;
+    result = await BaseApiHelper.postRequest(requestUrl, parentCategoryData);
+    return result;
+  }
+}
+
+///Add Category
+class AddCategoryRepo {
+  static Future<ResponseItem> addCategoryRepo(
+      {required Map<String, dynamic> categoryData}) async {
+    ResponseItem result = ResponseItem();
+
+    String requestUrl = AppUrls.BASE_URL + MethodNames.addCategory;
+    result = await BaseApiHelper.postRequest(requestUrl, categoryData);
+    return result;
+  }
+}
+
+///Add Sub Category
+class AddSubCategoryRepo {
+  static Future<ResponseItem> addSubCategoryRepo(
+      {required Map<String, dynamic> subCategoryData}) async {
+    ResponseItem result = ResponseItem();
+
+    String requestUrl = AppUrls.BASE_URL + MethodNames.addSubCategory;
+    result = await BaseApiHelper.postRequest(requestUrl, subCategoryData);
+    return result;
+  }
+}
+
+///Add Company Detail
+class AddCompanyDetailRepo {
+  static Future<ResponseItem> addCompanyDetailRepo(
+      {required Map<String, dynamic> companyDetails}) async {
+    ResponseItem result = ResponseItem();
+
+    String requestUrl = AppUrls.BASE_URL + MethodNames.addCompanyDetail;
+    result = await BaseApiHelper.postRequest(requestUrl, companyDetails);
+    return result;
+  }
+}
+
+//Get Company Detail
+class GetCompanyDetailRepo {
+  static Future<ResponseItem> getCompanyDetailRepo() async {
+    ResponseItem result = ResponseItem();
+
+    String requestUrl = AppUrls.BASE_URL + MethodNames.getCompanyAndLogo;
+    result = await BaseApiHelper.getRequest(requestUrl);
+    return result;
+  }
+}
+
 ///GET ALL Product Models DATA
 class GetAllProductModelsData {
   static Future<ResponseItem> getAllProductModelsData() async {

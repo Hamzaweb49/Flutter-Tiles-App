@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tiles_app/api/repo/master_repo.dart';
 import 'package:tiles_app/api/repo/user_repo.dart';
-import 'package:tiles_app/controller/product_details_controller.dart';
+import 'package:tiles_app/controller/products_controllers/product_details_controller.dart';
 import 'package:tiles_app/model/response_item.dart';
 import 'package:tiles_app/theme/app_layout.dart';
 
@@ -89,9 +89,7 @@ class CreateOrderController extends GetxController {
       if (result.status == true) {
         showSuccessSnackBar('Order Created successfully');
         clearControllers();
-      } else {
-        showErrorSnackBar('Something went wrong, please try again');
-      }
+      } else {}
     } catch (e) {
       log('ERROR while Creating Order: $e');
       showErrorSnackBar('An error occurred, please try again');

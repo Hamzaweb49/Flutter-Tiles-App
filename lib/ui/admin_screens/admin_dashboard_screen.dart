@@ -41,6 +41,26 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
     Get.toNamed(Routes.adminOrdersScreen);
   }
 
+  void _navigateToAddParentCategory() {
+    Get.toNamed(Routes.addParentCategoryScreen);
+  }
+
+  void _navigateToAddCategory() {
+    Get.toNamed(Routes.addCategoryScreen);
+  }
+
+  void _navigateToAddSubCategory() {
+    Get.toNamed(Routes.addSubCategoryScreen);
+  }
+
+  void _navigateToAddLocation() {
+    Get.toNamed(Routes.addLocationScreen);
+  }
+
+  void _navigateToAddCompanyDetails() {
+    Get.toNamed(Routes.addCompanyDetailScreen);
+  }
+
   @override
   Widget build(BuildContext context) {
     final h = MediaQuery.of(context).size.height;
@@ -91,6 +111,31 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
                         title: 'Add Brand',
                         onTap: _navigateToAddBrand,
                       ),
+                      _buildGridItem(
+                        icon: Icons.location_on,
+                        title: 'Add Location',
+                        onTap: _navigateToAddLocation,
+                      ),
+                      _buildGridItem(
+                        icon: Icons.category,
+                        title: 'Add Parent Category',
+                        onTap: _navigateToAddParentCategory,
+                      ),
+                      _buildGridItem(
+                        icon: Icons.my_library_add_outlined,
+                        title: 'Add Category',
+                        onTap: _navigateToAddCategory,
+                      ),
+                      _buildGridItem(
+                        icon: Icons.ballot_outlined,
+                        title: 'Add Sub Category',
+                        onTap: _navigateToAddSubCategory,
+                      ),
+                      _buildGridItem(
+                        icon: Icons.business_center,
+                        title: 'Add Company Details',
+                        onTap: _navigateToAddCompanyDetails,
+                      ),
                     ],
                   ),
                 ),
@@ -129,20 +174,27 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
             color: Colors.grey[300]!,
           ),
         ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(
-              icon,
-              size: 50,
-              color: appColor, // Using appColor for the icon color
-            ),
-            10.0.addHSpace(),
-            title.w500MontserratTextStyle(
-              fontSize: 16,
-              fontColor: Colors.black,
-            ),
-          ],
+        child: Padding(
+          // Add padding here
+          padding: const EdgeInsets.all(16.0), // Adjust the padding as needed
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                icon,
+                size: 50,
+                color: appColor, // Using appColor for the icon color
+              ),
+              10.0.addHSpace(),
+              Center(
+                // Ensure the text is centered
+                child: title.w500MontserratTextStyle(
+                    fontSize: 16,
+                    fontColor: Colors.black,
+                    textAlign: TextAlign.center),
+              ),
+            ],
+          ),
         ),
       ),
     );

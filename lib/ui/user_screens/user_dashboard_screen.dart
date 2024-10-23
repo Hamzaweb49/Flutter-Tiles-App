@@ -27,10 +27,6 @@ class _UserDashboardScreenState extends State<UserDashboardScreen> {
     Get.toNamed(Routes.userOrdersScreen);
   }
 
-  void _navigateToUserProfile() {
-    Get.toNamed(Routes.userProfileScreen);
-  }
-
   @override
   Widget build(BuildContext context) {
     final h = MediaQuery.of(context).size.height;
